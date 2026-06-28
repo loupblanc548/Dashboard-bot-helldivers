@@ -9,7 +9,7 @@ COPY package*.json ./
 COPY prisma ./prisma
 COPY tsconfig.json ./
 
-RUN npm ci
+RUN npm install
 
 RUN npx prisma generate
 
