@@ -72,7 +72,7 @@ app.get("/api/categories", (_req, res) => {
 // ─── File browser API ─────────────────────────────────────────────────────────
 
 app.get("/api/browse", (req, res) => {
-  const subPath = (req.query.path as string) || "";
+  const subPath = (req.query.path) || "";
   const fullPath = path.join(EQGRP_DIR, subPath);
 
   if (!fullPath.startsWith(EQGRP_DIR)) {
