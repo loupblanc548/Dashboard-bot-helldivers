@@ -1,0 +1,27 @@
+{
+  "name": "dashboard-bot-helldivers",
+  "version": "1.0.0",
+  "description": "Dashboard web standalone pour le bot Discord Helldivers",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/dashboard/server.ts",
+    "dev": "tsx watch src/dashboard/server.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "axios": "^1.7.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.0",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.7",
+    "prisma": "^5.22.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
