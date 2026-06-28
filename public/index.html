@@ -10,6 +10,7 @@
       --bg: #0a0e14;
       --bg-card: #11161e;
       --bg-hover: #161c26;
+      --bg-code: #0d1117;
       --border: #1e2632;
       --text: #c5cdd9;
       --text-dim: #6b7689;
@@ -21,153 +22,45 @@
       --purple: #a55eea;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-    }
-    /* Header */
-    header {
-      border-bottom: 1px solid var(--border);
-      padding: 20px 40px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      background: linear-gradient(180deg, #0d1219, var(--bg));
-    }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+    header { border-bottom: 1px solid var(--border); padding: 20px 40px; display: flex; align-items: center; gap: 16px; background: linear-gradient(180deg, #0d1219, var(--bg)); }
     header .logo { font-size: 28px; }
-    header h1 {
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-    header .subtitle {
-      color: var(--text-dim);
-      font-size: 13px;
-      margin-left: auto;
-    }
-    /* Layout */
+    header h1 { font-size: 22px; font-weight: 600; letter-spacing: 1px; }
+    header .subtitle { color: var(--text-dim); font-size: 13px; margin-left: auto; }
     .container { max-width: 1400px; margin: 0 auto; padding: 30px 40px; }
-    /* Stats bar */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-bottom: 30px;
-    }
-    .stat-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-    }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 30px; }
+    .stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
     .stat-card .num { font-size: 32px; font-weight: 700; color: var(--accent); }
     .stat-card .label { font-size: 12px; color: var(--text-dim); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
-    /* Tabs */
     .tabs { display: flex; gap: 4px; margin-bottom: 24px; border-bottom: 1px solid var(--border); }
-    .tab {
-      padding: 12px 24px;
-      cursor: pointer;
-      color: var(--text-dim);
-      font-size: 14px;
-      font-weight: 500;
-      border-bottom: 2px solid transparent;
-      transition: all 0.2s;
-    }
+    .tab { padding: 12px 24px; cursor: pointer; color: var(--text-dim); font-size: 14px; font-weight: 500; border-bottom: 2px solid transparent; transition: all 0.2s; }
     .tab:hover { color: var(--text); }
     .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
-    /* Search */
-    .search-bar {
-      width: 100%;
-      padding: 12px 20px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--text);
-      font-size: 14px;
-      margin-bottom: 24px;
-      outline: none;
-      transition: border-color 0.2s;
-    }
+    .search-bar { width: 100%; padding: 12px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-size: 14px; margin-bottom: 24px; outline: none; transition: border-color 0.2s; }
     .search-bar:focus { border-color: var(--accent-dim); }
-    /* Filter chips */
     .filters { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
-    .chip {
-      padding: 6px 14px;
-      border-radius: 20px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      color: var(--text-dim);
-      font-size: 12px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
+    .chip { padding: 6px 14px; border-radius: 20px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-dim); font-size: 12px; cursor: pointer; transition: all 0.2s; }
     .chip:hover { border-color: var(--accent-dim); color: var(--text); }
     .chip.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
-    /* Grid */
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
-    /* Card */
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      cursor: pointer;
-      transition: all 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s; position: relative; overflow: hidden; }
     .card:hover { background: var(--bg-hover); border-color: var(--accent-dim); transform: translateY(-2px); }
-    .card::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: var(--accent);
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
+    .card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent); opacity: 0; transition: opacity 0.2s; }
     .card:hover::before { opacity: 1; }
     .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
     .card-name { font-size: 16px; font-weight: 700; letter-spacing: 0.5px; }
-    .card-type {
-      font-size: 10px;
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+    .card-type { font-size: 10px; padding: 3px 8px; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
     .type-rce { background: rgba(255,71,87,0.15); color: var(--danger); }
     .type-backdoor { background: rgba(255,165,2,0.15); color: var(--warn); }
     .type-vuln { background: rgba(165,94,234,0.15); color: var(--purple); }
     .type-info { background: rgba(0,212,255,0.15); color: var(--accent); }
     .card-desc { font-size: 13px; color: var(--text-dim); line-height: 1.5; margin-bottom: 12px; }
-    .card-meta { display: flex; gap: 12px; font-size: 11px; color: var(--text-dim); }
-    .card-meta span { display: flex; align-items: center; gap: 4px; }
+    .card-meta { display: flex; gap: 12px; font-size: 11px; color: var(--text-dim); flex-wrap: wrap; }
     .card-meta .cve { color: var(--warn); font-weight: 600; }
-    .card-meta .target { color: var(--text-dim); }
     .card-cat { color: var(--accent); font-weight: 600; }
-    /* Modal */
-    .modal-overlay {
-      display: none;
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.7);
-      z-index: 100;
-      justify-content: center;
-      align-items: center;
-    }
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 100; justify-content: center; align-items: center; }
     .modal-overlay.active { display: flex; }
-    .modal {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
-      max-width: 600px;
-      width: 90%;
-    }
+    .modal { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 32px; max-width: 600px; width: 90%; }
     .modal h2 { font-size: 24px; margin-bottom: 8px; }
     .modal .modal-cat { color: var(--accent); font-size: 13px; margin-bottom: 16px; }
     .modal .modal-desc { color: var(--text); line-height: 1.6; margin-bottom: 20px; }
@@ -175,47 +68,34 @@
     .modal .modal-meta-item { background: var(--bg); border-radius: 8px; padding: 12px; }
     .modal .modal-meta-item .key { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
     .modal .modal-meta-item .val { font-size: 14px; font-weight: 600; }
-    .modal .close-btn {
-      width: 100%;
-      padding: 12px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--text);
-      cursor: pointer;
-      font-size: 14px;
-      transition: all 0.2s;
-    }
+    .modal .close-btn { width: 100%; padding: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); cursor: pointer; font-size: 14px; transition: all 0.2s; }
     .modal .close-btn:hover { border-color: var(--accent); color: var(--accent); }
-    /* Utility cards */
-    .util-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--purple);
-      border-radius: 12px;
-      padding: 20px;
-      transition: all 0.2s;
-    }
+    .util-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--purple); border-radius: 12px; padding: 20px; transition: all 0.2s; }
     .util-card:hover { background: var(--bg-hover); }
     .util-card .util-name { font-size: 16px; font-weight: 700; color: var(--purple); margin-bottom: 8px; }
     .util-card .util-desc { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: var(--text-dim);
-      font-size: 12px;
-      border-top: 1px solid var(--border);
-      margin-top: 40px;
-    }
+    .util-card .browse-btn { margin-top: 12px; display: inline-block; padding: 6px 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; color: var(--purple); font-size: 12px; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+    .util-card .browse-btn:hover { border-color: var(--purple); }
+    /* File browser */
+    .browser { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .breadcrumb { display: flex; gap: 4px; align-items: center; margin-bottom: 16px; font-size: 13px; flex-wrap: wrap; }
+    .breadcrumb a { color: var(--accent); cursor: pointer; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb .sep { color: var(--text-dim); }
+    .file-list { display: flex; flex-direction: column; gap: 4px; }
+    .file-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 8px; cursor: pointer; transition: all 0.15s; }
+    .file-item:hover { background: var(--bg-hover); }
+    .file-item .icon { font-size: 18px; }
+    .file-item .name { font-size: 14px; }
+    .file-item .size { margin-left: auto; font-size: 12px; color: var(--text-dim); }
+    .file-viewer { background: var(--bg-code); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-top: 16px; }
+    .file-viewer pre { font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: 13px; color: var(--text); white-space: pre-wrap; word-break: break-all; max-height: 500px; overflow-y: auto; }
+    .file-viewer .viewer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .file-viewer .viewer-header .filename { font-size: 14px; font-weight: 600; color: var(--accent); }
+    .file-viewer .viewer-header .back-btn { padding: 6px 12px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; color: var(--text); cursor: pointer; font-size: 12px; }
+    footer { text-align: center; padding: 30px; color: var(--text-dim); font-size: 12px; border-top: 1px solid var(--border); margin-top: 40px; }
     footer a { color: var(--accent); text-decoration: none; }
-    /* Responsive */
-    @media (max-width: 768px) {
-      .stats { grid-template-columns: repeat(2, 1fr); }
-      .container { padding: 20px; }
-      header { padding: 16px 20px; flex-wrap: wrap; }
-      header .subtitle { margin-left: 0; width: 100%; }
-    }
+    @media (max-width: 768px) { .stats { grid-template-columns: repeat(2, 1fr); } .container { padding: 20px; } header { padding: 16px 20px; flex-wrap: wrap; } header .subtitle { margin-left: 0; width: 100%; } }
   </style>
 </head>
 <body>
@@ -226,7 +106,6 @@
   </header>
 
   <div class="container">
-    <!-- Stats -->
     <div class="stats">
       <div class="stat-card"><div class="num" id="stat-exploits">0</div><div class="label">Exploits</div></div>
       <div class="stat-card"><div class="num" id="stat-utilities">0</div><div class="label">Utilities</div></div>
@@ -234,26 +113,41 @@
       <div class="stat-card"><div class="num" id="stat-categories">0</div><div class="label">Categories</div></div>
     </div>
 
-    <!-- Tabs -->
     <div class="tabs">
       <div class="tab active" data-tab="exploits">Exploits</div>
       <div class="tab" data-tab="utilities">Utilities</div>
+      <div class="tab" data-tab="browser">File Browser</div>
       <div class="tab" data-tab="about">About</div>
     </div>
 
-    <!-- Exploits tab -->
+    <!-- Exploits -->
     <div id="tab-exploits">
       <input type="text" class="search-bar" id="search" placeholder="🔍 Rechercher un exploit, une cible, un CVE...">
       <div class="filters" id="filters"></div>
       <div class="grid" id="exploits-grid"></div>
     </div>
 
-    <!-- Utilities tab -->
+    <!-- Utilities -->
     <div id="tab-utilities" style="display:none;">
       <div class="grid" id="utilities-grid"></div>
     </div>
 
-    <!-- About tab -->
+    <!-- File Browser -->
+    <div id="tab-browser" style="display:none;">
+      <div class="browser">
+        <div class="breadcrumb" id="breadcrumb"></div>
+        <div class="file-list" id="file-list"></div>
+        <div class="file-viewer" id="file-viewer" style="display:none;">
+          <div class="viewer-header">
+            <span class="filename" id="viewer-filename"></span>
+            <button class="back-btn" onclick="closeViewer()">← Retour</button>
+          </div>
+          <pre id="viewer-content"></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- About -->
     <div id="tab-about" style="display:none;">
       <div class="card" style="max-width:800px;">
         <h2 style="margin-bottom:16px;">À propos</h2>
@@ -267,7 +161,6 @@
           et contiennent des outils attribués à l'<strong style="color:var(--text)">Equation Group</strong> (NSA).
           <br><br>
           <strong style="color:var(--danger)">⚠️ Usage éducatif et de recherche uniquement.</strong>
-          Ces outils sont destinés à l'analyse defensive, la compréhension des vulnérabilités et la recherche en sécurité.
           <br><br>
           Source : <a href="https://github.com/x0rz/EQGRP_Lost_in_Translation" target="_blank" style="color:var(--accent);">github.com/x0rz/EQGRP_Lost_in_Translation</a>
         </p>
@@ -275,22 +168,18 @@
     </div>
   </div>
 
-  <!-- Modal -->
   <div class="modal-overlay" id="modal-overlay">
     <div class="modal" id="modal-content"></div>
   </div>
 
   <footer>
-    EQGRP Dashboard · Données depuis <a href="https://github.com/x0rz/EQGRP_Lost_in_Translation" target="_blank">x0rz/EQGRP_Lost_in_Translation</a>
-    · Pour usage éducatif uniquement
+    EQGRP Dashboard · <a href="https://github.com/x0rz/EQGRP_Lost_in_Translation" target="_blank">x0rz/EQGRP_Lost_in_Translation</a>
+    · Usage éducatif uniquement
   </footer>
 
   <script>
-    let allExploits = [];
-    let allUtilities = [];
-    let activeFilter = 'all';
+    let allExploits = [], allUtilities = [], activeFilter = 'all', currentPath = '';
 
-    // ─── Fetch data ─────────────────────────────────────────
     async function loadData() {
       const [expRes, utilRes] = await Promise.all([
         fetch('/api/exploits').then(r => r.json()),
@@ -298,13 +187,9 @@
       ]);
       allExploits = expRes.exploits;
       allUtilities = utilRes.utilities;
-      renderStats();
-      renderFilters();
-      renderExploits();
-      renderUtilities();
+      renderStats(); renderFilters(); renderExploits(); renderUtilities();
     }
 
-    // ─── Stats ──────────────────────────────────────────────
     function renderStats() {
       document.getElementById('stat-exploits').textContent = allExploits.length;
       document.getElementById('stat-utilities').textContent = allUtilities.length;
@@ -312,80 +197,51 @@
       document.getElementById('stat-categories').textContent = [...new Set(allExploits.map(e => e.category))].length;
     }
 
-    // ─── Filters ────────────────────────────────────────────
     function renderFilters() {
-      const categories = ['all', ...new Set(allExploits.map(e => e.category))];
-      const container = document.getElementById('filters');
-      container.innerHTML = categories.map(cat =>
-        `<div class="chip ${cat === 'all' ? 'active' : ''}" data-cat="${cat}">${cat === 'all' ? 'Tous' : cat}</div>`
-      ).join('');
-      container.querySelectorAll('.chip').forEach(chip => {
+      const cats = ['all', ...new Set(allExploits.map(e => e.category))];
+      const c = document.getElementById('filters');
+      c.innerHTML = cats.map(cat => `<div class="chip ${cat==='all'?'active':''}" data-cat="${cat}">${cat==='all'?'Tous':cat}</div>`).join('');
+      c.querySelectorAll('.chip').forEach(chip => {
         chip.onclick = () => {
           activeFilter = chip.dataset.cat;
-          container.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+          c.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
           chip.classList.add('active');
           renderExploits();
         };
       });
     }
 
-    // ─── Exploits ───────────────────────────────────────────
     function renderExploits() {
-      const search = document.getElementById('search').value.toLowerCase();
+      const s = document.getElementById('search').value.toLowerCase();
       const filtered = allExploits.filter(e => {
-        const matchFilter = activeFilter === 'all' || e.category === activeFilter;
-        const matchSearch = !search ||
-          e.name.toLowerCase().includes(search) ||
-          e.target.toLowerCase().includes(search) ||
-          e.cve.toLowerCase().includes(search) ||
-          e.description.toLowerCase().includes(search);
-        return matchFilter && matchSearch;
+        const mf = activeFilter === 'all' || e.category === activeFilter;
+        const ms = !s || e.name.toLowerCase().includes(s) || e.target.toLowerCase().includes(s) || e.cve.toLowerCase().includes(s) || e.description.toLowerCase().includes(s);
+        return mf && ms;
       });
-
-      const grid = document.getElementById('exploits-grid');
-      if (filtered.length === 0) {
-        grid.innerHTML = '<p style="color:var(--text-dim); padding:20px;">Aucun exploit trouvé.</p>';
-        return;
-      }
-
-      grid.innerHTML = filtered.map(e => {
-        const typeClass = e.type === 'RCE' ? 'type-rce' : e.type === 'Backdoor' ? 'type-backdoor' : e.type === 'Vuln' ? 'type-vuln' : 'type-info';
-        return `
-          <div class="card" onclick="showModal('${e.name}')">
-            <div class="card-header">
-              <span class="card-name">${e.name}</span>
-              <span class="card-type ${typeClass}">${e.type}</span>
-            </div>
-            <div class="card-desc">${e.description}</div>
-            <div class="card-meta">
-              <span class="card-cat">${e.category}</span>
-              <span class="cve">${e.cve}</span>
-              <span class="target">🎯 ${e.target}</span>
-            </div>
-          </div>
-        `;
+      const g = document.getElementById('exploits-grid');
+      if (!filtered.length) { g.innerHTML = '<p style="color:var(--text-dim);padding:20px;">Aucun exploit trouvé.</p>'; return; }
+      g.innerHTML = filtered.map(e => {
+        const tc = e.type==='RCE'?'type-rce':e.type==='Backdoor'?'type-backdoor':e.type==='Vuln'?'type-vuln':'type-info';
+        return `<div class="card" onclick="showModal('${e.name}')"><div class="card-header"><span class="card-name">${e.name}</span><span class="card-type ${tc}">${e.type}</span></div><div class="card-desc">${e.description}</div><div class="card-meta"><span class="card-cat">${e.category}</span><span class="cve">${e.cve}</span><span>🎯 ${e.target}</span></div></div>`;
       }).join('');
     }
 
-    // ─── Utilities ──────────────────────────────────────────
     function renderUtilities() {
-      const grid = document.getElementById('utilities-grid');
-      grid.innerHTML = allUtilities.map(u => `
+      document.getElementById('utilities-grid').innerHTML = allUtilities.map(u => `
         <div class="util-card">
           <div class="util-name">${u.name}</div>
           <div class="util-desc">${u.description}</div>
-        </div>
-      `).join('');
+          <a class="browse-btn" onclick="switchToBrowser('${u.path}')">📁 Parcourir les fichiers</a>
+        </div>`).join('');
     }
 
-    // ─── Modal ──────────────────────────────────────────────
     window.showModal = function(name) {
       const e = allExploits.find(x => x.name === name);
       if (!e) return;
-      const typeClass = e.type === 'RCE' ? 'type-rce' : e.type === 'Backdoor' ? 'type-backdoor' : e.type === 'Vuln' ? 'type-vuln' : 'type-info';
+      const tc = e.type==='RCE'?'type-rce':e.type==='Backdoor'?'type-backdoor':e.type==='Vuln'?'type-vuln':'type-info';
       document.getElementById('modal-content').innerHTML = `
         <h2>${e.name}</h2>
-        <div class="modal-cat">${e.category} · <span class="card-type ${typeClass}" style="display:inline-block;">${e.type}</span></div>
+        <div class="modal-cat">${e.category} · <span class="card-type ${tc}" style="display:inline-block;">${e.type}</span></div>
         <div class="modal-desc">${e.description}</div>
         <div class="modal-meta">
           <div class="modal-meta-item"><div class="key">CVE</div><div class="val" style="color:var(--warn)">${e.cve}</div></div>
@@ -393,33 +249,76 @@
           <div class="modal-meta-item"><div class="key">Catégorie</div><div class="val" style="color:var(--accent)">${e.category}</div></div>
           <div class="modal-meta-item"><div class="key">Type</div><div class="val">${e.type}</div></div>
         </div>
-        <button class="close-btn" onclick="closeModal()">Fermer</button>
-      `;
+        ${e.files ? `<div style="margin-bottom:16px;"><div class="key" style="font-size:11px;color:var(--text-dim);text-transform:uppercase;margin-bottom:8px;">Fichiers</div>${e.files.map(f=>`<div style="font-family:monospace;font-size:12px;color:var(--text-dim);padding:4px 0;">📄 ${f}</div>`).join('')}</div>`:''}
+        <button class="close-btn" onclick="closeModal()">Fermer</button>`;
       document.getElementById('modal-overlay').classList.add('active');
     };
+    window.closeModal = () => document.getElementById('modal-overlay').classList.remove('active');
+    document.getElementById('modal-overlay').onclick = (e) => { if(e.target.id==='modal-overlay') closeModal(); };
 
-    window.closeModal = function() {
-      document.getElementById('modal-overlay').classList.remove('active');
+    // ─── File Browser ────────────────────────────────────
+    window.switchToBrowser = function(p) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelector('[data-tab="browser"]').classList.add('active');
+      document.querySelectorAll('[id^="tab-"]').forEach(el => el.style.display='none');
+      document.getElementById('tab-browser').style.display='block';
+      browsePath(p || '');
     };
 
-    document.getElementById('modal-overlay').onclick = (e) => {
-      if (e.target.id === 'modal-overlay') closeModal();
-    };
+    async function browsePath(p) {
+      currentPath = p;
+      document.getElementById('file-viewer').style.display = 'none';
+      document.getElementById('file-list').style.display = 'flex';
+      const res = await fetch(`/api/browse?path=${encodeURIComponent(p)}`);
+      const data = await res.json();
+      if (data.error) { document.getElementById('file-list').innerHTML = `<p style="color:var(--danger)">${data.error}</p>`; return; }
 
-    // ─── Tabs ───────────────────────────────────────────────
+      // Breadcrumb
+      const parts = p ? p.split('/') : [];
+      let bc = '<a onclick="browsePath(\'\')">🏠 Root</a>';
+      let acc = '';
+      parts.forEach((part, i) => {
+        acc += (i > 0 ? '/' : '') + part;
+        bc += ` <span class="sep">/</span> <a onclick="browsePath('${acc}')">${part}</a>`;
+      });
+      document.getElementById('breadcrumb').innerHTML = bc;
+
+      // File list
+      const dirs = data.items.filter(i => i.type === 'dir').sort((a,b) => a.name.localeCompare(b.name));
+      const files = data.items.filter(i => i.type === 'file').sort((a,b) => a.name.localeCompare(b.name));
+      document.getElementById('file-list').innerHTML = [...dirs, ...files].map(i => `
+        <div class="file-item" onclick="${i.type==='dir'?`browsePath('${i.path}')`:`viewFile('${i.path}')`}">
+          <span class="icon">${i.type==='dir'?'📁':'📄'}</span>
+          <span class="name">${i.name}</span>
+          <span class="size">${i.type==='file'?(i.size<1024?i.size+' B':(i.size/1024).toFixed(1)+' KB'):''}</span>
+        </div>`).join('');
+    }
+    window.browsePath = browsePath;
+
+    async function viewFile(p) {
+      const res = await fetch(`/api/browse?path=${encodeURIComponent(p)}`);
+      const data = await res.json();
+      if (data.error) return;
+      document.getElementById('file-list').style.display = 'none';
+      document.getElementById('file-viewer').style.display = 'block';
+      document.getElementById('viewer-filename').textContent = data.name;
+      document.getElementById('viewer-content').textContent = data.content || '(Fichier binaire — non affichable)';
+    }
+    window.viewFile = viewFile;
+    window.closeViewer = () => { document.getElementById('file-viewer').style.display='none'; document.getElementById('file-list').style.display='flex'; };
+
+    // ─── Tabs ─────────────────────────────────────────────
     document.querySelectorAll('.tab').forEach(tab => {
       tab.onclick = () => {
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
-        document.querySelectorAll('[id^="tab-"]').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('[id^="tab-"]').forEach(el => el.style.display='none');
         document.getElementById('tab-' + tab.dataset.tab).style.display = 'block';
+        if (tab.dataset.tab === 'browser') browsePath(currentPath);
       };
     });
 
-    // ─── Search ─────────────────────────────────────────────
     document.getElementById('search').oninput = renderExploits;
-
-    // ─── Init ───────────────────────────────────────────────
     loadData();
   </script>
 </body>
